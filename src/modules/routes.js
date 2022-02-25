@@ -13,6 +13,7 @@ router
     .get('/admins/orders', Queue.QUEUE) /*USERNING NAVBATNI KO'RISH */
     .get('/directions', Directions.DIRECTION) /*YONALISHLAR */
     .post('/directions', Directions.ADD_DIRECTION) /*YONALISH QO'SHISH*/
+    .delete('/directions/:id', Directions.DELETE_DIRECTION) 
     .delete('/admins/orders/:id', Directions.DELETE_QUEUE) 
     .get('/admins/oldusers', Directions.ALL_HISTORY) /*USERNING NAVBATNI KO'RISH */
     .get('/admins/oldusers/:id', Directions.QUEUE_HISTORY) /*USER HISTIRY  WHERE ID*/

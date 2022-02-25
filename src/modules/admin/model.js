@@ -13,6 +13,12 @@ VALUES ($1)
 RETURNING
 *
 `
+const DELETE_DIRECTION = `
+DELETE 
+FROM
+directions
+ where direction_id = $1
+`
 
 const DELETE_QUEUE = `
 DELETE 
@@ -46,6 +52,7 @@ const deleteQueue = (id) => fetch(DELETE_QUEUE, id)
 
 const Direction = () => fetchAll(DIRECTION)
 
+const deleteDirection = (id) => fetchAll(DELETE_DIRECTION, id)
 const QueueHistory = (id) => fetchAll(QUEUE_HISTORY, id)
 const AllHistory = () => fetchAll(ALL_HISTORY)
 
@@ -54,6 +61,7 @@ module.exports = {
     addDirection,
     AllHistory,
     Direction,
+    deleteDirection,
     deleteQueue,
     QueueHistory,
 

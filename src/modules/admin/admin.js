@@ -1,4 +1,4 @@
-const {AllHistory, addDirection, Direction, deleteQueue, QueueHistory, getAdminId} = require('./model')
+const {AllHistory, addDirection, Direction, deleteDirection, deleteQueue, QueueHistory} = require('./model')
 
 
 module.exports = {
@@ -27,6 +27,19 @@ module.exports = {
             console.log(error.message);
         }
     },
+    DELETE_DIRECTION: async (req, res) => {
+        try {
+            const { id } = req.params
+
+            const deletedirection = await deleteDirection(id)
+
+            res.status(202).json('DELETED')
+
+        } catch (error) {
+            console.log(error.message);
+        }
+    },
+
 
     DELETE_QUEUE: async (req, res) => {
         try {
